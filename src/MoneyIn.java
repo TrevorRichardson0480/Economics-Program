@@ -4,18 +4,19 @@ import java.nio.charset.*;
 import java.util.*;
 
 public class MoneyIn {
-    File settingsFile   = new File("savedSettings");
-    File logFile = new File("log");
-    File dailyFile = new File("C:/Users/trevo/IdeaProjects/expensesAndIncome/src/dailyChange.txt");
-
-    protected Scanner readDaily = new Scanner(dailyFile);
+    protected File dailyFile;
 
     public MoneyIn() throws FileNotFoundException {
 
+        //File settingsFile   = new File("savedSettings");
+        //File logFile = new File("log");
+        //File dailyFile = new File("C:/Users/trevo/Documents/projects/Personal Projects/Economics-Program/src/dailyChange.txt");
+
+        //Scanner readDaily = new Scanner(dailyFile);
     }
 
-    private void replaceData(String oldLine, String newLine) throws IOException {
-        List<String> fileContent = new ArrayList<>(Files.readAllLines(Paths.get("C:/Users/trevo/IdeaProjects/expensesAndIncome/src/dailyChange.txt"), StandardCharsets.UTF_8));
+    private void replaceData(String oldLine, String newLine, String fileName) throws IOException {
+        List<String> fileContent = new ArrayList<>(Files.readAllLines(Paths.get(fileName), StandardCharsets.UTF_8));
 
         for (int i = 0; i < fileContent.size(); i++) {
             if (fileContent.get(i).equals(oldLine)) {
@@ -24,7 +25,7 @@ public class MoneyIn {
             }
         }
 
-        Files.write(Paths.get("C:/Users/trevo/IdeaProjects/expensesAndIncome/src/dailyChange.txt"), fileContent, StandardCharsets.UTF_8);
+        Files.write(Paths.get(fileName), fileContent, StandardCharsets.UTF_8);
 
     }
 
@@ -97,7 +98,7 @@ public class MoneyIn {
         }
     }
 
-    private void addData(int day, double amount, double currData) throws IOException {
+    private void addData(int day, double amount, double currData, String fileName) throws IOException {
         String newLine;
         String oldLine;
 
@@ -107,11 +108,11 @@ public class MoneyIn {
         newLine = day + ". $" + newData + "\n";
         oldLine = day + ". $" + currData + "\n";
 
-        replaceData(oldLine, newLine);
+        replaceData(oldLine, newLine, fileName);
 
     }
 
-    public boolean addByDay(int day, double amount, Scanner scnr) throws IOException {
+    public boolean addByDay(int day, double amount, Scanner scnr, String fileName) throws IOException {
         double data = returnData(day);
 
         if (data != 0 && data != -1) {
@@ -123,12 +124,12 @@ public class MoneyIn {
             switch (scnr.next()) {
 
                 case "1":
-                    addData(day, amount, data);
+                    addData(day, amount, data, fileName);
                     System.out.println("\nData has been updated!");
                     break;
 
                 case "2":
-                    replaceData(day + ". $" + data + "\n", day + ". $" + amount + "\n");
+                    replaceData(day + ". $" + data + "\n", day + ". $" + amount + "\n", fileName);
                     System.out.println("\nData has been replaced!");
                     break;
 
@@ -144,7 +145,7 @@ public class MoneyIn {
             return true;
 
         } else if (data == 0) {
-            replaceData(day + ".", day + ". $" + amount + "\n");
+            replaceData(day + ".", day + ". $" + amount + "\n", fileName);
             System.out.println("Data has been updated!");
             return true;
 
