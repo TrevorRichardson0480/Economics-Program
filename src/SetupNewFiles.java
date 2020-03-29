@@ -17,7 +17,7 @@ public class SetupNewFiles {
 
 
     public void newMonthlyFile(String month, int days, double limit) throws IOException {
-        FileWriter writer = new FileWriter(month + "DailyChange.txt");
+        FileWriter writer = new FileWriter(month + "DailyChanges.txt");
         writer.write("Expenses for " + month + "\n");
         writer.write("--------------------------\n");
         writer.write("\n");
@@ -54,6 +54,7 @@ public class SetupNewFiles {
         writer.write("--------------------------\n");
         writer.write("\n");
         writer.write("Date:  Change:  Transaction Name:\n");
+        writer.write("\n");
 
         writer.close();
 
