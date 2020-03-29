@@ -1,48 +1,54 @@
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Settings {
-    public File settingsPath;
+    public File settingsFile;
+    public ReplaceLine replaceLineSettings;
 
-    public Settings() {
-        settingsPath = new File("settings.txt");
+    public Settings() throws FileNotFoundException {
+        File settingsPath = new File("settings.txt");
+        settingsFile = new File(settingsPath.getAbsolutePath());
+        replaceLineSettings = new ReplaceLine("settings.txt");
+
     }
 
     public String getSetMonth() throws FileNotFoundException {
-        String currLine;
+        Scanner settings = new Scanner(settingsFile);
 
-        File settings = new File(settingsPath.getAbsolutePath());
-        Scanner settingsFile = new Scanner(settings);
-
-        while(settingsFile.hasNextLine()) {
-            if (settingsFile.next().startsWith("CURRENTMONTH")) {
-                settingsFile.next();
-                return settingsFile.next();
+        while(settings.hasNextLine()) {
+            if (settings.next().startsWith("CURRENTMONTH")) {
+                settings.next();
+                return settings.next();
             }
-
         }
 
         return null;
     }
 
     public void setDifMonth(String newMonth) throws IOException {
-        String currMonth = getSetMonth();
+        replaceLineSettings.replaceData("CURRENTMONTH = " + getSetMonth(), "CURRENTMONTH = " + newMonth);
 
-        List<String> fileContent = new ArrayList<>(Files.readAllLines(Paths.get(settingsPath.getAbsolutePath()), StandardCharsets.UTF_8));
+    }
 
-        for (int i = 0; i < fileContent.size(); i++) {
-            if (fileContent.get(i).equals("CURRENTMONTH = " + currMonth)) {
-                fileContent.set(i, "CURRENTMONTH = " + newMonth);
-                break;
+    public String getSetGoal() throws FileNotFoundException {
+        Scanner settings = new Scanner(settingsFile);
+
+        while(settings.hasNextLine()) {
+            if (settings.next().startsWith("CURRENTGOAL")) {
+                settings.next();
+                return settings.next();
             }
         }
 
-        Files.write(Paths.get(settingsPath.getAbsolutePath()), fileContent, StandardCharsets.UTF_8);
+        return null;
+    }
+
+    public void setDifGoal(String newGoal) throws IOException {
+        String oldGoal = getSetGoal();
+        replaceLineSettings.replaceData("CURRENTGOAL = " + oldGoal, "CURRENTGOAL = " + newGoal);
+
+        ReplaceLine replaceLineMonth = new ReplaceLine(getSetMonth() + "DailyChange.txt");
+        replaceLineMonth.replaceData("MONTHLY GOAL: " + oldGoal, "MONTHLY GOAL: " + newGoal);
 
     }
 }

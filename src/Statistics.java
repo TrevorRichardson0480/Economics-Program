@@ -1,22 +1,14 @@
-import javax.swing.plaf.IconUIResource;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.lang.*;
 
 public class Statistics {
     private File file;
-    private String fileName;
     private ReplaceLine replaceLine;
 
     public Statistics(String fileName) {
-        this.fileName = fileName;
         File filePath = new File(fileName);
         this.file = new File(filePath.getAbsolutePath());
         this.replaceLine = new ReplaceLine(fileName);
@@ -91,8 +83,14 @@ public class Statistics {
         Scanner stats = new Scanner(file);
 
         while (stats.hasNextLine()) {
-            System.out.println(stats.nextLine());
+            if (stats.nextLine().startsWith("MONTHLY")) {
+                System.out.print("MONTHLY ");
 
+                while (stats.hasNextLine()) {
+                    System.out.println(stats.nextLine() + " ");
+
+                }
+            }
         }
     }
 }
