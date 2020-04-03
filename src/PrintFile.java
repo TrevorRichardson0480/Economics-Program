@@ -2,9 +2,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class printFile {
+/* The PrintFile class:
+ * - Iterates through a given file and prints its contents, line by line
+ */
 
-    public printFile(String fileName) throws FileNotFoundException {
+public class PrintFile {
+
+    // Print the given file name
+    public static void printFile(String fileName) throws FileNotFoundException {
 
         File filePath = new File(fileName);
         File file = new File(filePath.getAbsolutePath());

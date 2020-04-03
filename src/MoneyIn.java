@@ -3,6 +3,8 @@ import java.nio.file.*;
 import java.nio.charset.*;
 import java.util.*;
 
+import static java.lang.Integer.parseInt;
+
 public class MoneyIn {
     private String fileNameDaily;
     private String fileNameLog;
@@ -16,13 +18,11 @@ public class MoneyIn {
     }
 
     void addDataToLog(String date, int day, double amount, String description) throws IOException {
-        if (!(returnData(day) == -1)) {
-            String newLine = date + " $" + amount + " - " + description;
+            String newLine = date + "     $" + amount + "   -   " + description;
 
             List<String> fileContent = new ArrayList<>(Files.readAllLines(Paths.get(fileNameLog), StandardCharsets.UTF_8));
-            fileContent.set(fileContent.size(), newLine);
+            fileContent.add(fileContent.size(), newLine);
             Files.write(Paths.get(fileNameLog), fileContent, StandardCharsets.UTF_8);
-        }
 
     }
 
@@ -31,7 +31,7 @@ public class MoneyIn {
         String currLine = "";
         int dataAt = 0;
         int exponent = 0;
-        int currDay = 0;
+        int thisDay = 0;
         double data = 0;
         boolean dayExists = false;
 
@@ -40,48 +40,68 @@ public class MoneyIn {
         File dailyFile = new File(dailyFilePath.getAbsolutePath());
         Scanner readDaily = new Scanner(dailyFile);
 
+        readDaily.nextLine();
+        readDaily.nextLine();
+        readDaily.nextLine();
+        readDaily.nextLine();
+
         while (readDaily.hasNextLine()) {
             currLine = readDaily.nextLine();
-            currDay++;
 
-            if (currLine.length() < 3) {
-                return 0;
-            }
+            if (currLine.length() > 0) {
+                if (currLine.charAt(1) == '.') {
+                    thisDay = parseInt(currLine.substring(0, 1));
 
-            if (currDay == day) {
-                if (currLine.charAt(3) == '$') {
-                    dataAt = 4;
-                    dayExists = true;
-                    break;
-
-                } else if (currLine.charAt(4) == '$') {
-                    dataAt = 5;
-                    dayExists = true;
-                    break;
-
-                } else if (currLine.charAt(5) == '$') {
-                    dataAt = 6;
-                    dayExists = true;
-                    break;
+                } else if (currLine.charAt(2) == '.') {
+                    thisDay = parseInt(currLine.substring(0, 2));
 
                 } else {
+                    break;
+
+                }
+
+            } else {
+                break;
+
+            }
+
+            if (thisDay == day) {
+
+                if (currLine.length() < 3) {
                     return 0;
+
+                } else if (currLine.charAt(6) == '$') {
+                    dataAt = 7;
+                    dayExists = true;
+                    break;
+
+                } else if (currLine.charAt(7) == '$') {
+                    dataAt = 8;
+                    dayExists = true;
+                    break;
+
+                } else if (currLine.charAt(8) == '$') {
+                    dataAt = 9;
+                    dayExists = true;
+                    break;
 
                 }
             }
         }
 
         if (dayExists) {
-            int stopHere = currLine.indexOf("\n") - 1;
 
-            for (int i = stopHere; dataAt <= i; i--) {
-                if (i == stopHere) {
+            for (int i = currLine.length() - 1; dataAt <= i; i--) {
+                if (currLine.charAt(i) == '-') {
+                    data *= -1;
+
+                } else if (currLine.lastIndexOf('.') - i == -2) {
                     data += ((((double) currLine.charAt(i)) - 48) * 0.01);
 
-                } else if (i == stopHere - 1) {
+                } else if (currLine.lastIndexOf('.') - i == -1) {
                     data += ((((double) currLine.charAt(i)) - 48) * 0.1);
 
-                } else if (i == stopHere - 2) {
+                } else if (currLine.lastIndexOf('.') - i == 0) {
                     continue;
 
                 } else {
@@ -106,8 +126,8 @@ public class MoneyIn {
 
         double newData = amount + currData;
 
-        newLine = day + ". $" + newData + "\n";
-        oldLine = day + ". $" + currData + "\n";
+        newLine = day + ".    $" + newData;
+        oldLine = day + ".    $" + currData;
 
         replaceLine.replaceData(oldLine, newLine);
 
@@ -130,7 +150,7 @@ public class MoneyIn {
                     break;
 
                 case "2":
-                    replaceLine.replaceData(day + ". $" + data + "\n", day + ". $" + amount + "\n");
+                    replaceLine.replaceData(day + ".    $" + data, day + ".    $" + amount);
                     System.out.println("\nData has been replaced!");
                     break;
 
@@ -146,7 +166,7 @@ public class MoneyIn {
             return true;
 
         } else if (data == 0) {
-            replaceLine.replaceData(day + ".", day + ". $" + amount + "\n");
+            replaceLine.replaceData(day + ".", day + ".    $" + amount);
             System.out.println("Data has been updated!");
             return true;
 

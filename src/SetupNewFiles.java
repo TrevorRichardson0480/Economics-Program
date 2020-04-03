@@ -24,15 +24,15 @@ public class SetupNewFiles {
         writer.write("Day:  Change:\n");
 
         for (int i = 1; i <= days; i++) {
-            writer.write((i + ". \n").toString());
+            writer.write((i + ".\n").toString());
 
         }
 
         writer.write("\n");
 
         if (limit > 0) {
-            writer.write("MONTHLY GOAL: " + limit + "\n");
-            writer.write("DAILY GOAL: " + (limit / (double) days) + "\n");
+            writer.write("MONTHLY GOAL: $" + limit + "\n");
+            writer.write("DAILY GOAL: $" + (limit / (double) days) + "\n");
 
         } else {
             writer.write("MONTHLY GOAL: None\n");
@@ -53,7 +53,7 @@ public class SetupNewFiles {
         writer.write("Log for " + month + "\n");
         writer.write("--------------------------\n");
         writer.write("\n");
-        writer.write("Date:  Change:  Transaction Name:\n");
+        writer.write("Date:          Change:      Transaction Name:\n");
         writer.write("\n");
 
         writer.close();
