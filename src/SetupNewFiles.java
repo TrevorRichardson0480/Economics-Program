@@ -53,7 +53,7 @@ public class SetupNewFiles {
         writer.write("Log for " + month + "\n");
         writer.write("--------------------------\n");
         writer.write("\n");
-        writer.write("Date:          Change:      Transaction Name:\n");
+        writer.write("Date:        Change:      Transaction Name:\n");
         writer.write("\n");
 
         writer.close();

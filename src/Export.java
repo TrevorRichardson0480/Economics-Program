@@ -9,7 +9,7 @@ public class Export {
     private Scanner daily;
     private Scanner log;
 
-    public Export(String fileNameDaily, String fileNameLog) {
+    public Export(String fileNameDaily, String fileNameLog) throws FileNotFoundException {
         this.fileNameDaily = fileNameDaily;
         this.fileNameLog = fileNameLog;
 
@@ -19,12 +19,35 @@ public class Export {
         this.fileDaily = new File(fileDailyPath.getAbsolutePath());
         this.fileLog = new File(fileLogPath.getAbsolutePath());
 
-        this.daily = new Scanner(fileNameDaily);
-        this.log = new Scanner(fileNameLog);
+        this.daily = new Scanner(fileDaily);
+        this.log = new Scanner(fileLog);
 
     }
 
     public void exportTo(String path) throws IOException {
+        Scanner scnr = new Scanner(System.in);
+        String warningOption;
+        File fileTestExistsDaily = new File(path + fileNameDaily);
+        File fileTestExistsLog = new File(path + fileNameLog);
+
+        if (fileTestExistsDaily.exists()) {
+            System.out.print("\nWARNING! The specified path already exists:\n" + fileTestExistsDaily + "\nDo you wish to continue? This will overwrite the current file. [Y/N] ");
+            warningOption = scnr.next();
+            if (!(warningOption.equals("Y") || warningOption.equals("y"))) {
+                return;
+
+            }
+        }
+
+        if (fileTestExistsLog.exists()) {
+            System.out.print("\nWARNING! The specified path already exists:\n" + fileTestExistsLog + "\nDo you wish to continue? This will overwrite the current file. [Y/N] ");
+            warningOption = scnr.next();
+            if (!(warningOption.equals("Y") || warningOption.equals("y"))) {
+                return;
+
+            }
+        }
+
         String fileContents = "";
 
         while (daily.hasNextLine()) {
@@ -46,6 +69,8 @@ public class Export {
         writer = new FileWriter(path + fileNameLog);
         writer.write(fileContents);
         writer.close();
+
+        System.out.println("\nData successfully exported.");
 
     }
 }

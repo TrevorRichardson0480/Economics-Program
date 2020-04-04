@@ -8,12 +8,14 @@ import static java.lang.Integer.parseInt;
 public class MoneyIn {
     private String fileNameDaily;
     private String fileNameLog;
-    private ReplaceLine replaceLine;
+    private ReplaceLine replaceLineDaily;
+    private ReplaceLine replaceLineLog;
 
     public MoneyIn(String fileNameDaily, String fileNameLog) throws FileNotFoundException {
         this.fileNameDaily = fileNameDaily;
         this.fileNameLog = fileNameLog;
-        this.replaceLine = new ReplaceLine(fileNameDaily);
+        this.replaceLineDaily = new ReplaceLine(fileNameDaily);
+        this.replaceLineLog = new ReplaceLine(fileNameLog);
 
     }
 
@@ -27,7 +29,7 @@ public class MoneyIn {
     }
 
 
-    private double returnData(int day) throws FileNotFoundException {
+    public double returnData(int day) throws FileNotFoundException {
         String currLine = "";
         int dataAt = 0;
         int exponent = 0;
@@ -67,7 +69,7 @@ public class MoneyIn {
 
             if (thisDay == day) {
 
-                if (currLine.length() < 3) {
+                if (currLine.length() < 4) {
                     return 0;
 
                 } else if (currLine.charAt(6) == '$') {
@@ -129,17 +131,17 @@ public class MoneyIn {
         newLine = day + ".    $" + newData;
         oldLine = day + ".    $" + currData;
 
-        replaceLine.replaceData(oldLine, newLine);
+        replaceLineDaily.replaceData(oldLine, newLine);
 
     }
 
-    public boolean addByDay(int day, double amount, Scanner scnr) throws IOException {
+    public boolean addByDay(int day, double amount, String date, Scanner scnr) throws IOException {
         double data = returnData(day);
 
         if (data != 0 && data != -1) {
 
             System.out.println("\nWarning! Data already exists for this day!");
-            System.out.println("Would you like to [1] subtract expense from current data, [2] replace data, [3] abort.");
+            System.out.println("Would you like to [1] subtract expense or add income from/to current data, [2] replace data, [3] abort.");
             System.out.print("Please select a number: ");
 
             switch (scnr.next()) {
@@ -150,7 +152,8 @@ public class MoneyIn {
                     break;
 
                 case "2":
-                    replaceLine.replaceData(day + ".    $" + data, day + ".    $" + amount);
+                    replaceLineDaily.replaceData(day + ".    $" + data, day + ".    $" + amount);
+                    replaceLineLog.replaceData(date + "     $" + data + "   -   Generic expense transaction for day: " + day, date + "     $" + data + "   -   Generic expense transaction for day: " + day + " ---!VOID!");
                     System.out.println("\nData has been replaced!");
                     break;
 
@@ -166,10 +169,31 @@ public class MoneyIn {
             return true;
 
         } else if (data == 0) {
-            replaceLine.replaceData(day + ".", day + ".    $" + amount);
+            replaceLineDaily.replaceData(day + ".", day + ".    $" + amount);
             System.out.println("Data has been updated!");
             return true;
 
+
+        } else if (data == -1) {
+            return false;
+
+        }
+
+        return false;
+    }
+
+    public boolean addByTransaction(int day, double amount) throws IOException {
+        double data = returnData(day);
+
+        if (data != 0 && data != -1) {
+            addData(day, amount, data);
+            System.out.println("\nData has been updated!");
+            return true;
+
+        } else if (data == 0) {
+            replaceLineDaily.replaceData(day + ".", day + ".    $" + amount);
+            System.out.println("\nData has been updated!");
+            return true;
 
         } else if (data == -1) {
             return false;

@@ -33,12 +33,12 @@ public class Expenses {
         System.out.println("Keep track of what's coming in and what's going out");
         System.out.println("---------------------------------------------------");
 
-        while (option != "11") {
+        while (option.compareTo("11") != 0) {
             System.out.print( "\n------------------------" +
                                 "\nPlease select an option" +
                                 "\n------------------------" +
                                 "\n1  - Set month and monthly goal" +
-                                "\n2  - View daily change" +
+                                "\n2  - View daily changes" +
                                 "\n3  - View expenses and income log" +
                                 "\n4  - Add an expense by day" +
                                 "\n5  - Add an expense by transaction name" +
@@ -118,7 +118,7 @@ public class Expenses {
                     
                     day = parseInt(date.substring(date.indexOf("/") + 1, date.lastIndexOf("/")));
 
-                    if (!inMoney.addByDay(day, amount, scnr)) {
+                    if (!inMoney.addByDay(day, amount, date, scnr)) {
                         System.out.println("\nERROR! That day was not found!");
 
                     } else {
@@ -131,59 +131,64 @@ public class Expenses {
                 case "5":
                     System.out.print("\nWhat is the amount of the expense? (exclude \"$\") ");
                     amount = -scnr.nextDouble();
-                    System.out.print("\nWhat is the date of this expense? (mm/dd/yy) ");
+                    System.out.print("What is the date of this expense? (mm/dd/yy) ");
                     date = scnr.next();
-                    System.out.print("\nPlease add a description of the transaction: ");
-                    description = scnr.next();
+                    System.out.print("Please add a description of the transaction: ");
+                    description = scnr.nextLine();
 
-                    day = ((date.charAt(3) -48 )* 10) + (date.charAt(4) - 48);
+                    day = parseInt(date.substring(date.indexOf("/") + 1, date.lastIndexOf("/")));
 
-                    if (!inMoney.addByDay(day, amount, scnr)) {
+                    if (!inMoney.addByTransaction(day, amount)) {
                         System.out.println("\nERROR! That day was not found!");
+
+                    } else {
+                        inMoney.addDataToLog(date, day, amount, description);
 
                     }
 
-                    inMoney.addDataToLog(date, day, amount, description);
                     break;
 
                 case "6":
-                    System.out.print("\nWhat is the day of the month of the income? ");
-                    day = scnr.nextInt();
                     System.out.print("\nWhat is the amount of the income? (exclude \"$\") ");
                     amount = scnr.nextDouble();
-                    System.out.print("\nWhat is the date of this income? (mm/dd/yy) ");
+                    System.out.print("What is the date of this income? (mm/dd/yy) ");
                     date = scnr.next();
 
-                    if (!inMoney.addByDay(day, amount, scnr)) {
+                    day = parseInt(date.substring(date.indexOf("/") + 1, date.lastIndexOf("/")));
+
+                    if (!inMoney.addByDay(day, amount, date, scnr)) {
                         System.out.println("\nERROR! That day was not found!");
 
-                    }
+                    } else {
+                        inMoney.addDataToLog(date, day, amount, "Generic income transaction for day: " + day);
 
-                    inMoney.addDataToLog(date, day, amount, "Generic income transaction for day: " + day);
+                    }
                     break;
 
                 case "7":
                     System.out.print("\nWhat is the amount of the income? (exclude \"$\") ");
                     amount = scnr.nextDouble();
-                    System.out.print("\nWhat is the date of this income? (mm/dd/yy) ");
+                    System.out.print("What is the date of this income? (mm/dd/yy) ");
                     date = scnr.next();
-                    System.out.print("\nPlease add a description of the transaction: ");
+                    System.out.print("Please add a description of the transaction: ");
                     description = scnr.next();
 
-                    day = ((date.charAt(3) -48 )* 10) + (date.charAt(4) - 48);
+                    day = parseInt(date.substring(date.indexOf("/") + 1, date.lastIndexOf("/")));
 
-                    if (!inMoney.addByDay(day, amount, scnr)) {
+                    if (!inMoney.addByTransaction(day, amount)) {
                         System.out.println("\nERROR! That day was not found!");
 
-                    }
+                    } else {
+                        inMoney.addDataToLog(date, day, amount, description);
 
-                    inMoney.addDataToLog(date, day, amount, description);
+                    }
 
                     break;
 
                 case "8":
                     Statistics stats = new Statistics(fileNameDaily);
                     stats.updateStats();
+                    System.out.println("\nStatistics have been updated:\n");
                     stats.getStats();
 
                     break;
@@ -216,21 +221,24 @@ public class Expenses {
                     System.out.println("\nNew month file has been created!");
                     setting.setDifMonth(month);
                     setting.setDifGoal(limit);
+                    fileNameDaily = month + "DailyChanges.txt";
+                    fileNameLog = "LogFileFor_" + month + ".txt";
+                    inMoney = new MoneyIn(fileNameDaily, fileNameLog);
                     System.out.println("The current month file is now set to " + setting.getSetMonth() + " with a monthly goal of $" + setting.getSetGoal());
 
                     break;
 
 
                 case "10":
-                    System.out.println("\nWhere would you like to export?");
+                    System.out.println("\nData will export in two files. Where would you like to export?");
                     System.out.println("1 - Documents");
                     System.out.println("2 - Desktop");
                     System.out.println("3 - Somewhere else (specify a directory)");
-                    System.out.println("Type anything else to exit this section");
+                    System.out.print("Type anything else to exit this section: ");
 
                     Export export = new Export(fileNameDaily, fileNameLog);
 
-                    switch (scnr.nextLine()) {
+                    switch (scnr.next()) {
                         case "1":
                             export.exportTo("C:\\Users\\" + System.getProperty("user.name") + "\\Documents\\");
                             break;

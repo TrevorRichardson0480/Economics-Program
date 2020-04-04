@@ -18,65 +18,63 @@ public class Statistics {
         int numDays = 0;
         int numDaysWithData = 0;
         double totalData = 0;
-        double monthlyGoal = 0;
+        double monthlyGoal;
         double dailyGoal;
         double dailyAverage;
+        double percentToGoal;
         String currLine;
-        String nextLine;
-        String percentToGoal;
-        String oldDailyGoal = null;
-        String oldDailyAverage = null;
-        String oldPercentage = null;
-        String oldTotal = null;
+        String oldDailyGoal;
+        String oldDailyAverage;
+        String oldPercentage;
+        String oldTotal;
 
         Scanner stats = new Scanner(file);
 
+        stats.nextLine();
+        stats.nextLine();
+        stats.nextLine();
+        stats.nextLine();
+
         while (stats.hasNextLine()) {
             currLine = stats.nextLine();
-            nextLine = stats.nextLine();
 
-            if (currLine.endsWith(".")) {
+            if (currLine.equals("")) {
+                break;
+
+            } else if (currLine.contains("$")) {
+                if (currLine.contains("-")) {
+                    totalData -= Double.parseDouble(currLine.substring(currLine.indexOf("-") + 1));
+
+                } else {
+                    totalData += Double.parseDouble(currLine.substring(currLine.indexOf("$") + 1));
+                }
+
                 numDays++;
-
-            }
-
-            if (nextLine.endsWith(".")) {
-                numDays++;
-
-            }
-
-            while (currLine.charAt(0) > 47 && currLine.charAt(0) < 58 && !nextLine.endsWith(".")) {
-                totalData += Double.parseDouble(nextLine.substring(1));
                 numDaysWithData++;
 
-                currLine = stats.nextLine();
-                nextLine = stats.nextLine();
-
-            }
-
-
-            if (currLine.charAt(0) == 77) {
-                stats.nextLine();
-                monthlyGoal = Double.parseDouble(stats.nextLine().substring(1));
-                oldDailyGoal = stats.nextLine() + " " + stats.nextLine() + " " + stats.nextLine();
-                oldDailyAverage = stats.nextLine() + " " + stats.nextLine() + " " + stats.nextLine();
-                oldPercentage = stats.nextLine() + " " + stats.nextLine() + " " + stats.nextLine() + " " + stats.nextLine();
-                oldTotal = stats.nextLine() + " " + stats.nextLine() + " " + stats.nextLine();
-                break;
+            } else {
+                numDays++;
 
             }
         }
+
+        currLine = stats.nextLine();
+        monthlyGoal = Double.parseDouble(currLine.substring(currLine.indexOf("$") + 1));
+        oldDailyGoal = stats.nextLine();
+        oldDailyAverage = stats.nextLine();
+        oldPercentage = stats.nextLine();
+        oldTotal = stats.nextLine();
 
         stats.close();
 
         dailyGoal = monthlyGoal / numDays;
         dailyAverage = totalData / numDaysWithData;
-        percentToGoal = (totalData / monthlyGoal) + "%";
+        percentToGoal = (totalData / monthlyGoal) * 100;
 
-        replaceLine.replaceData("DAILY GOAL: $" + dailyGoal, oldDailyGoal);
-        replaceLine.replaceData("DAILY AVERAGE: $" + dailyAverage, oldDailyAverage);
-        replaceLine.replaceData("PERCENTAGE TO GOAL: " + percentToGoal, oldPercentage);
-        replaceLine.replaceData("TOTAL SPENT: $" + totalData, oldTotal);
+        replaceLine.replaceData(oldDailyGoal, "DAILY GOAL: $" + dailyGoal);
+        replaceLine.replaceData(oldDailyAverage, "DAILY AVERAGE: $" + String.format("%.2f", dailyAverage));
+        replaceLine.replaceData(oldPercentage, "PERCENTAGE TO GOAL: " + String.format("%.2f", percentToGoal) + "%");
+        replaceLine.replaceData(oldTotal, "TOTAL SPENT: $" + totalData);
     }
 
     public void getStats() throws FileNotFoundException {

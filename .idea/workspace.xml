@@ -4,16 +4,15 @@
     <list default="true" id="00117415-efe6-46ba-ae2c-8213a3422c40" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/expensesAndIncome/Expenses.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/expensesAndIncome/Expenses.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/expensesAndIncome/Export.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/expensesAndIncome/Export.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/expensesAndIncome/MoneyIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/expensesAndIncome/MoneyIn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/expensesAndIncome/Settings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/expensesAndIncome/Settings.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/expensesAndIncome/SetupNewFiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/expensesAndIncome/SetupNewFiles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/expensesAndIncome/printFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/expensesAndIncome/printFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/expensesAndIncome/test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/expensesAndIncome/Statistics.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/expensesAndIncome/Statistics.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Expenses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Expenses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Export.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Export.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MoneyIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MoneyIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Settings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SetupNewFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SetupNewFiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/printFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PrintFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Statistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +34,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -87,7 +87,8 @@
       <workItem from="1585370325188" duration="9990000" />
       <workItem from="1585467695548" duration="996000" />
       <workItem from="1585504234516" duration="9259000" />
-      <workItem from="1585938643733" duration="14010000" />
+      <workItem from="1585938643733" duration="15984000" />
+      <workItem from="1585958452858" duration="7824000" />
     </task>
     <servers />
   </component>
@@ -111,42 +112,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585286993453" />
-    <state width="1877" height="335" key="GridCell.Tab.0.bottom" timestamp="1585952333440">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1585966476103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585952333440" />
-    <state width="1877" height="335" key="GridCell.Tab.0.center" timestamp="1585952333440">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585966476103" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1585966476103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585952333440" />
-    <state width="1877" height="335" key="GridCell.Tab.0.left" timestamp="1585952333440">
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585966476103" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1585966476103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585952333440" />
-    <state width="1877" height="335" key="GridCell.Tab.0.right" timestamp="1585952333440">
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585966476103" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1585966476103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585952333440" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1585952202621">
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585966476103" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1585966476103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585952202621" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1585952202621">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585966476103" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1585966476103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585952202621" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1585952202621">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585966476103" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1585966476103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585952202621" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1585952202621">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585966476103" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1585966476103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585952202621" />
-    <state x="1036" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1585504233548">
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585966476103" />
+    <state x="1036" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1585958508423">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1036" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585504233548" />
+    <state x="1036" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585958508423" />
     <state x="666" y="149" key="refactoring.ChangeSignatureDialog" timestamp="1585507489041">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -160,34 +161,119 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MoneyIn.java</url>
+          <line>124</line>
+          <option name="timeStamp" value="181" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MoneyIn.java</url>
+          <line>125</line>
+          <option name="timeStamp" value="182" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MoneyIn.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="183" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MoneyIn.java</url>
+          <line>130</line>
+          <option name="timeStamp" value="184" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MoneyIn.java</url>
+          <line>131</line>
+          <option name="timeStamp" value="185" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MoneyIn.java</url>
+          <line>133</line>
+          <option name="timeStamp" value="186" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MoneyIn.java</url>
+          <line>176</line>
+          <option name="timeStamp" value="187" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MoneyIn.java</url>
+          <line>170</line>
+          <option name="timeStamp" value="188" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MoneyIn.java</url>
+          <line>140</line>
+          <option name="timeStamp" value="190" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MoneyIn.java</url>
+          <line>138</line>
+          <option name="timeStamp" value="191" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Statistics.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="207" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Statistics.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="208" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Statistics.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="209" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Statistics.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="211" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Statistics.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="212" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Statistics.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="213" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Statistics.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="214" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ReplaceLine.java</url>
           <line>16</line>
-          <option name="timeStamp" value="172" />
+          <option name="timeStamp" value="215" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ReplaceLine.java</url>
           <line>18</line>
-          <option name="timeStamp" value="173" />
+          <option name="timeStamp" value="216" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ReplaceLine.java</url>
           <line>19</line>
-          <option name="timeStamp" value="174" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ReplaceLine.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="175" />
+          <option name="timeStamp" value="217" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ReplaceLine.java</url>
           <line>21</line>
-          <option name="timeStamp" value="176" />
+          <option name="timeStamp" value="218" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ReplaceLine.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="219" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ReplaceLine.java</url>
           <line>26</line>
-          <option name="timeStamp" value="177" />
+          <option name="timeStamp" value="220" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
