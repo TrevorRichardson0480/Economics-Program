@@ -1,8 +1,24 @@
+/* ======================================================================================================
+ * Expenses.java
+ * ======================================================================================================
+ * Author:           Trevor Richardson
+ * Date completed:   4-5-2020
+ * Purpose :         To make it easier to keep track of your expenses and income, with a goal.
+ * ======================================================================================================
+ */
+
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.Scanner;
 import static java.lang.Integer.parseInt;
+
+/* Expenses.java is the main file with the main program loop
+ * - Setup settings, the modifying class (MoneyIn), and file names
+ * - Prompt user with options
+ * - Execute until user input == "11"
+ */
 
 public class Expenses {
 
@@ -20,6 +36,7 @@ public class Expenses {
         double amount;
 
 
+        // Setup scanner, settings, file names, and the data modifier
         Scanner scnr = new Scanner(System.in);
         Settings setting = new Settings();
 
@@ -33,6 +50,7 @@ public class Expenses {
         System.out.println("Keep track of what's coming in and what's going out");
         System.out.println("---------------------------------------------------");
 
+        // main loop
         while (option.compareTo("11") != 0) {
             System.out.print( "\n------------------------" +
                                 "\nPlease select an option" +
@@ -109,25 +127,28 @@ public class Expenses {
                     PrintFile.printFile(fileNameLog);
                     break;
 
-                //
+                // Case 4 handles adding a daily expense
                 case "4":
                     System.out.print("\nWhat is the amount of the expense? (exclude \"$\" and \"-\") ");
                     amount = -scnr.nextDouble();
                     System.out.print("What is the date of this expense? (mm/dd/yy) ");
                     date = scnr.next();
-                    
+
+                    // determine day from date
                     day = parseInt(date.substring(date.indexOf("/") + 1, date.lastIndexOf("/")));
 
+                    // if the change was not successful, print an error, otherwise add the change to the log
                     if (!inMoney.addByDay(day, amount, date, scnr)) {
                         System.out.println("\nERROR! That day was not found!");
 
                     } else {
-                        inMoney.addDataToLog(date, day, amount, "Generic expense transaction for day: " + day);
+                        inMoney.addDataToLog(date, amount, "Generic expense transaction for day: " + day);
 
                     }
 
                     break;
 
+                // Case 5 handles adding a specific transaction expense, with a description
                 case "5":
                     System.out.print("\nWhat is the amount of the expense? (exclude \"$\") ");
                     amount = -scnr.nextDouble();
@@ -136,35 +157,41 @@ public class Expenses {
                     System.out.print("Please add a description of the transaction: ");
                     description = scnr.nextLine();
 
+                    // determine day from date
                     day = parseInt(date.substring(date.indexOf("/") + 1, date.lastIndexOf("/")));
 
+                    // if the change was not successful, print an error, otherwise add the change to the log
                     if (!inMoney.addByTransaction(day, amount)) {
                         System.out.println("\nERROR! That day was not found!");
 
                     } else {
-                        inMoney.addDataToLog(date, day, amount, description);
+                        inMoney.addDataToLog(date, amount, description);
 
                     }
 
                     break;
 
+                // Case 6 handles adding a daily income
                 case "6":
                     System.out.print("\nWhat is the amount of the income? (exclude \"$\") ");
                     amount = scnr.nextDouble();
                     System.out.print("What is the date of this income? (mm/dd/yy) ");
                     date = scnr.next();
 
+                    // determine day from date
                     day = parseInt(date.substring(date.indexOf("/") + 1, date.lastIndexOf("/")));
 
+                    // if the change was not successful, print an error, otherwise add the change to the log
                     if (!inMoney.addByDay(day, amount, date, scnr)) {
                         System.out.println("\nERROR! That day was not found!");
 
                     } else {
-                        inMoney.addDataToLog(date, day, amount, "Generic income transaction for day: " + day);
+                        inMoney.addDataToLog(date, amount, "Generic income transaction for day: " + day);
 
                     }
                     break;
 
+                // Case 7 handles adding a specific transaction income, with a description
                 case "7":
                     System.out.print("\nWhat is the amount of the income? (exclude \"$\") ");
                     amount = scnr.nextDouble();
@@ -173,18 +200,21 @@ public class Expenses {
                     System.out.print("Please add a description of the transaction: ");
                     description = scnr.next();
 
+                    // determine day from date
                     day = parseInt(date.substring(date.indexOf("/") + 1, date.lastIndexOf("/")));
 
+                    // if the change was not successful, print an error, otherwise add the change to the log
                     if (!inMoney.addByTransaction(day, amount)) {
                         System.out.println("\nERROR! That day was not found!");
 
                     } else {
-                        inMoney.addDataToLog(date, day, amount, description);
+                        inMoney.addDataToLog(date, amount, description);
 
                     }
 
                     break;
 
+                // Case 8 handles updating, then viewing the updated statistics
                 case "8":
                     Statistics stats = new Statistics(fileNameDaily);
                     stats.updateStats();
@@ -193,12 +223,15 @@ public class Expenses {
 
                     break;
 
+                // Case 9 handles creating new files for a new month set of data
                 case "9":
                     System.out.print("\nName of new month: ");
                     month = scnr.next();
 
+                    // Create a path of given month
                     Path path = Paths.get(month + "DailyChanges.txt");
 
+                    // Use path to determine if the month file exists. If so, prompt user if they want to write over said file.
                     if (Files.exists(path)) {
                         System.out.println("\nWARNING! This month file already exists!");
                         System.out.println("Remember, you can call this file anything, not just names of months.");
@@ -206,8 +239,10 @@ public class Expenses {
                         String writeOver = scnr.next();
                         System.out.println();
 
+                        // If the user does not wish to write over, break.
                         if (writeOver.compareTo("y") != 0 && writeOver.compareTo("Y") != 0) {
                             break;
+
                         }
                     }
 
@@ -216,9 +251,12 @@ public class Expenses {
                     System.out.print("What is the goal spending limit of this month? (if none, type 0) ");
                     limit = scnr.nextInt();
 
+                    // create files
                     new SetupNewFiles(month, day, limit);
 
-                    System.out.println("\nNew month file has been created!");
+                    System.out.println("\nNew month files have been created!");
+
+                    // Update settings, file names, and modifier to the new month file and goal. Print to confirm the change.
                     setting.setDifMonth(month);
                     setting.setDifGoal(limit);
                     fileNameDaily = month + "DailyChanges.txt";
@@ -229,6 +267,7 @@ public class Expenses {
                     break;
 
 
+                // Case 10 handles exporting.
                 case "10":
                     System.out.println("\nData will export in two files. Where would you like to export?");
                     System.out.println("1 - Documents");
@@ -238,18 +277,19 @@ public class Expenses {
 
                     Export export = new Export(fileNameDaily, fileNameLog);
 
+                    // Files will export to desired location
                     switch (scnr.next()) {
                         case "1":
-                            export.exportTo("C:\\Users\\" + System.getProperty("user.name") + "\\Documents\\");
+                            export.exportTo("C:\\Users\\" + System.getProperty("user.name") + "\\Documents\\", scnr);
                             break;
 
                         case "2":
-                            export.exportTo("C:\\Users\\" + System.getProperty("user.name") + "\\OneDrive\\Desktop\\");
+                            export.exportTo("C:\\Users\\" + System.getProperty("user.name") + "\\OneDrive\\Desktop\\", scnr);
                             break;
 
                         case "3":
                             System.out.println("\nWhere would you like to export?");
-                            export.exportTo(scnr.next());
+                            export.exportTo(scnr.next(), scnr);
                             break;
 
                         default:
@@ -259,6 +299,7 @@ public class Expenses {
                     }
                     break;
 
+                // Case 11 handles exiting
                 case "11":
                     System.out.println("\nGoodbye!");
                     break;

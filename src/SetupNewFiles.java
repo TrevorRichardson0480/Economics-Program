@@ -1,28 +1,29 @@
 import java.io.*;
 
+/* The Setup New File Class creates a new file prepared for receiving data.
+ * - This class is designed to only be called once, with the constructor
+ * - The constructor will call the methods that will create the new Daily Changes file and the new Log file
+ */
+
 public class SetupNewFiles {
-    private String month;
-    private int days;
-    private double limit;
 
     public SetupNewFiles(String month, int days, double limit) throws IOException {
-        this.month = month;
-        this.days = days;
-        this.limit = limit;
-
         newMonthlyFile(month, days, limit);
         newLogFile(month);
 
     }
 
-
+    // Create a new monthly file (ie. the Daily Changes file)
     public void newMonthlyFile(String month, int days, double limit) throws IOException {
         FileWriter writer = new FileWriter(month + "DailyChanges.txt");
+
+        // Write the header
         writer.write("Expenses for " + month + "\n");
         writer.write("--------------------------\n");
         writer.write("\n");
         writer.write("Day:  Change:\n");
 
+        // Write the days as a list
         for (int i = 1; i <= days; i++) {
             writer.write((i + ".\n").toString());
 
@@ -30,6 +31,7 @@ public class SetupNewFiles {
 
         writer.write("\n");
 
+        // If the goal was given, initialize it to the given
         if (limit > 0) {
             writer.write("MONTHLY GOAL: $" + limit + "\n");
             writer.write("DAILY GOAL: $" + (limit / (double) days) + "\n");
@@ -40,6 +42,7 @@ public class SetupNewFiles {
 
         }
 
+        // Setup the statistics, to be changed later
         writer.write("DAILY AVERAGE: null\n");
         writer.write("PERCENTAGE TO GOAL: 0%\n");
         writer.write("TOTAL SPENT: $0\n");
@@ -48,8 +51,11 @@ public class SetupNewFiles {
 
     }
 
+    // Create a new log file, to keep track of every change to the Daily Changes file
     public void newLogFile(String month) throws IOException {
         FileWriter writer = new FileWriter("LogFileFor_" + month + ".txt");
+
+        // Write the header
         writer.write("Log for " + month + "\n");
         writer.write("--------------------------\n");
         writer.write("\n");
