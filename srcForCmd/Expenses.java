@@ -82,7 +82,7 @@ public class Expenses {
                     if (setChoice.compareTo("Y") == 0 || setChoice.compareTo("y") == 0) {
                         System.out.print("What is the month? ");
                         setMonth = scnr.next();
-                        File newMonth = new File("../Economics-Program/saved_data/" + setMonth + "DailyChanges.txt");
+                        File newMonth = new File("../saved_data/" + setMonth + "DailyChanges.txt");
 
                         // if this month could not be found, we inform the user
                         if (!newMonth.exists()) {
@@ -229,7 +229,7 @@ public class Expenses {
                     month = scnr.next();
 
                     // Create a path of given month
-                    Path path = Paths.get("../Economics-Program/saved_data/" + month + "DailyChanges.txt");
+                    Path path = Paths.get("../saved_data/" + month + "DailyChanges.txt");
 
                     // Use path to determine if the month file exists. If so, prompt user if they want to write over said file.
                     if (Files.exists(path)) {

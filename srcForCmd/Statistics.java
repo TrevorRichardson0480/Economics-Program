@@ -17,9 +17,9 @@ public class Statistics {
 
     // Set the file path and prepare to replace a line
     public Statistics(String fileName) {
-        File filePath = new File("../Economics-Program/saved_data/" + fileName);
+        File filePath = new File("../saved_data/" + fileName);
         this.file = new File(filePath.getAbsolutePath());
-        this.replaceLine = new ReplaceLine("../Economics-Program/saved_data/" + fileName);
+        this.replaceLine = new ReplaceLine("../saved_data/" + fileName);
     }
 
     // Update the statistics

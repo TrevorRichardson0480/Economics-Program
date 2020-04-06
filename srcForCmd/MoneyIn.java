@@ -18,10 +18,10 @@ public class MoneyIn {
 
     // Constructor will set file names, to be used later, and prepare to replace lines
     public MoneyIn(String fileNameDaily, String fileNameLog) throws FileNotFoundException {
-        this.fileNameDaily = "../Economics-Program/saved_data/" + fileNameDaily;
-        this.fileNameLog = "../Economics-Program/saved_data/" + fileNameLog;
-        this.replaceLineDaily = new ReplaceLine("../Economics-Program/saved_data/" + fileNameDaily);
-        this.replaceLineLog = new ReplaceLine("../Economics-Program/saved_data/" + fileNameLog);
+        this.fileNameDaily = "../saved_data/" + fileNameDaily;
+        this.fileNameLog = "../saved_data/" + fileNameLog;
+        this.replaceLineDaily = new ReplaceLine("../saved_data/" + fileNameDaily);
+        this.replaceLineLog = new ReplaceLine("../saved_data/" + fileNameLog);
 
     }
 

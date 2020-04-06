@@ -14,7 +14,7 @@ public class Settings {
     public ReplaceLine replaceLineSettings;
 
     public Settings() throws IOException {
-        File settingsPath = new File("../Economics-Program/settings.txt");
+        File settingsPath = new File("../settings.txt");
         settingsFile = new File(settingsPath.getAbsolutePath());
 
         // If we construct the settings class and see there is no settings file. Then make a settings file.
@@ -24,7 +24,7 @@ public class Settings {
         }
 
         // Initialize to replace lines in settings.txt later
-        replaceLineSettings = new ReplaceLine("settings.txt");
+        replaceLineSettings = new ReplaceLine("../settings.txt");
     }
 
     // Returns the set month in settings.txt
@@ -68,7 +68,7 @@ public class Settings {
         Double oldGoal = getSetGoal();
         replaceLineSettings.replaceData("CURRENTGOAL = " + oldGoal, "CURRENTGOAL = " + newGoal);
 
-        ReplaceLine replaceLineMonth = new ReplaceLine("../Economics-Program/saved_data/" + getSetMonth() + "DailyChanges.txt");
+        ReplaceLine replaceLineMonth = new ReplaceLine("../saved_data/" + getSetMonth() + "DailyChanges.txt");
         replaceLineMonth.replaceData("MONTHLY GOAL: $" + oldGoal, "MONTHLY GOAL: $" + newGoal);
 
     }
@@ -88,7 +88,7 @@ public class Settings {
         String thisLine;
 
         // Initialize scanner for finding the goal
-        File newMonth = new File("../Economics-Program/saved_data/" + month + "DailyChanges.txt");
+        File newMonth = new File("../saved_data/" + month + "DailyChanges.txt");
         newMonth = new File(newMonth.getAbsolutePath());
         Scanner findingGoal = new Scanner(newMonth);
 

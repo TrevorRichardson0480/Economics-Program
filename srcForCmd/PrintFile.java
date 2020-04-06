@@ -11,7 +11,7 @@ public class PrintFile {
     // Print the given file name
     public static void printFile(String fileName) throws FileNotFoundException {
 
-        File filePath = new File("../Economics-Program/saved_data/" + fileName);
+        File filePath = new File("../saved_data/" + fileName);
         File file = new File(filePath.getAbsolutePath());
         Scanner readData = new Scanner(file);
 

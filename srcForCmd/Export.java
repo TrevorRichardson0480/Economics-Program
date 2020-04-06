@@ -17,8 +17,8 @@ public class Export {
         this.fileNameDaily = fileNameDaily;
         this.fileNameLog = fileNameLog;
 
-        File fileDailyPath = new File("../Economics-Program/saved_data/" + fileNameDaily);
-        File fileLogPath = new File("../Economics-Program/saved_data/" + fileNameLog);
+        File fileDailyPath = new File("../saved_data/" + fileNameDaily);
+        File fileLogPath = new File("../saved_data/" + fileNameLog);
 
         File fileDaily = new File(fileDailyPath.getAbsolutePath());
         File fileLog = new File(fileLogPath.getAbsolutePath());

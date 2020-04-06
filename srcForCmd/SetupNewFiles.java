@@ -15,7 +15,7 @@ public class SetupNewFiles {
 
     // Create a new monthly file (ie. the Daily Changes file)
     public void newMonthlyFile(String month, int days, double limit) throws IOException {
-        FileWriter writer = new FileWriter("../Economics-Program/saved_data/" + month + "DailyChanges.txt");
+        FileWriter writer = new FileWriter("../saved_data/" + month + "DailyChanges.txt");
 
         // Write the header
         writer.write("Expenses for " + month + "\n");
@@ -53,7 +53,7 @@ public class SetupNewFiles {
 
     // Create a new log file, to keep track of every change to the Daily Changes file
     public void newLogFile(String month) throws IOException {
-        FileWriter writer = new FileWriter("../Economics-Program/saved_data/LogFileFor_" + month + ".txt");
+        FileWriter writer = new FileWriter("../saved_data/LogFileFor_" + month + ".txt");
 
         // Write the header
         writer.write("Log for " + month + "\n");

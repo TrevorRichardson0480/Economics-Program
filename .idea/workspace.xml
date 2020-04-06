@@ -5,11 +5,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/expensesAndIncome/Expenses.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/expensesAndIncome/Expenses.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/expensesAndIncome/Export.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/expensesAndIncome/Export.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/expensesAndIncome/MoneyIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/expensesAndIncome/MoneyIn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/expensesAndIncome/Settings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/expensesAndIncome/Settings.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/expensesAndIncome/SetupNewFiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/expensesAndIncome/SetupNewFiles.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/expensesAndIncome/Statistics.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/expensesAndIncome/Statistics.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/expensesAndIncome/printFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/expensesAndIncome/printFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.txt" beforeDir="false" afterPath="$PROJECT_DIR$/settings.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Expenses.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/Expenses.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Expenses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Expenses.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Export.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Export.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MoneyIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MoneyIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReplaceLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReplaceLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PrintFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PrintFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Settings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SetupNewFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SetupNewFiles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Statistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics.java" afterDir="false" />
     </list>
@@ -89,6 +96,14 @@
       <workItem from="1585938643733" duration="15984000" />
       <workItem from="1585958452858" duration="7824000" />
       <workItem from="1586069357417" duration="6651000" />
+      <workItem from="1586132797795" duration="257000" />
+      <workItem from="1586133321516" duration="309000" />
+      <workItem from="1586133827113" duration="666000" />
+      <workItem from="1586134666498" duration="1111000" />
+      <workItem from="1586135826115" duration="2105000" />
+      <workItem from="1586138046886" duration="11000" />
+      <workItem from="1586138187601" duration="229000" />
+      <workItem from="1586138597127" duration="41000" />
     </task>
     <servers />
   </component>
@@ -112,42 +127,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585286993453" />
-    <state width="1877" height="335" key="GridCell.Tab.0.bottom" timestamp="1586072780905">
+    <state width="1877" height="347" key="GridCell.Tab.0.bottom" timestamp="1586138056853">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586072780905" />
-    <state width="1877" height="335" key="GridCell.Tab.0.center" timestamp="1586072780904">
+    <state width="1877" height="347" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586138056853" />
+    <state width="1877" height="347" key="GridCell.Tab.0.center" timestamp="1586138056853">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586072780904" />
-    <state width="1877" height="335" key="GridCell.Tab.0.left" timestamp="1586072780904">
+    <state width="1877" height="347" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586138056853" />
+    <state width="1877" height="347" key="GridCell.Tab.0.left" timestamp="1586138056852">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586072780904" />
-    <state width="1877" height="335" key="GridCell.Tab.0.right" timestamp="1586072780905">
+    <state width="1877" height="347" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586138056852" />
+    <state width="1877" height="347" key="GridCell.Tab.0.right" timestamp="1586138056853">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586072780905" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1585966476103">
+    <state width="1877" height="347" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586138056853" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1586135785776">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585966476103" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1585966476103">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586135785776" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1586135785776">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585966476103" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1585966476103">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586135785776" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1586135785776">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585966476103" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1585966476103">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586135785776" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1586135785776">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585966476103" />
-    <state x="1036" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1586069356055">
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586135785776" />
+    <state x="1036" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1586138604981">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1036" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586069356055" />
+    <state x="1036" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586138604981" />
     <state x="666" y="149" key="refactoring.ChangeSignatureDialog" timestamp="1585507489041">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

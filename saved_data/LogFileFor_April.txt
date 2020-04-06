@@ -1,0 +1,7 @@
+Log for April
+--------------------------
+
+Date:        Change:      Transaction Name:
+
+4/3/2020     $-29.99   -   Generic expense transaction for day: 3
+4/5/2020     $-5.3   -   Generic expense transaction for day: 5
